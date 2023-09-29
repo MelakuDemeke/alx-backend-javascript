@@ -38,5 +38,14 @@ export default class HolbertonCourse {
     this._length = zise;
   }
 
+  get students() {
+    return this._students;
+  }
 
+  set students(stu) {
+    if (!Array.isArray(stu)) {
+      throw new TypeError('must be a array');
+    }
+    this._students = stu;
+  }
 }
