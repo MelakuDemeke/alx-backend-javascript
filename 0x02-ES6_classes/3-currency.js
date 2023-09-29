@@ -19,4 +19,8 @@ export default class Currency {
   set name(na) {
     this._name = na;
   }
+
+  displayFullCurrency() {
+    return `${this._name} (${this._code})`;
+  }
 }
