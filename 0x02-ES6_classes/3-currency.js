@@ -11,4 +11,12 @@ export default class Currency {
   set code(cod) {
     this._code = cod;
   }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(na) {
+    this._name = na;
+  }
 }
