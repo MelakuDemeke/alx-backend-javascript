@@ -15,4 +15,17 @@ export default class HolbertonCourse {
       this._students = students;
     }
   }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(na) {
+    if (typeof na !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = na;
+  }
+
+
 }
