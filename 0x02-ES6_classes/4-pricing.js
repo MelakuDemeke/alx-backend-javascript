@@ -25,4 +25,11 @@ export default class Pricing {
   displayFullPrice() {
     return `${this._amount} ${this._currency.displayFullCurrency()}`;
   }
+
+  convertPrice(currency) {
+    if (!(currency instanceof Currency)) {
+      throw new TypeError('currency must be a Currency');
+    }
+    return this._amount * currency._rate / this._currency._rate;
+  }
 }
