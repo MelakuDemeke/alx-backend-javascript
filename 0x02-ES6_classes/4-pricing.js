@@ -26,7 +26,7 @@ export default class Pricing {
     return `${this.amount} ${this.currency.name} (${this.currency.code})`;
   }
 
-  static convertPrice(currency) {
+  static convertPrice(amount, conversionRate) {
     if (!(currency instanceof Currency)) {
       throw new TypeError('currency must be a Currency');
     }
