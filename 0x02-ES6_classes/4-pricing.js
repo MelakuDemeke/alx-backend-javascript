@@ -27,9 +27,6 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
-    if (!(currency instanceof Currency)) {
-      throw new TypeError('currency must be a Currency');
-    }
     return amount * conversionRate;
   }
 }
