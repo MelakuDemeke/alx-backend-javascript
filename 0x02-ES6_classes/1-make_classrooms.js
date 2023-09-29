@@ -1,10 +1,10 @@
-import {ClassRoom} from './0-classroom';
+import ClassRoom from './0-classroom';
 
 export default function initializeRooms() {
-  const rooms = [];
-  rooms.push(new ClassRoom(19));
-  rooms.push(new ClassRoom(20));
-  rooms.push(new ClassRoom(34));
-
-  return rooms;
+  const rooms = [
+    new ClassRoom(19),
+    new ClassRoom(20),
+    new ClassRoom(34),
+  ];
+  return (rooms);
 }
