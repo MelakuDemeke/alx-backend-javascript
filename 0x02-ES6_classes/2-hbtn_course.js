@@ -27,5 +27,16 @@ export default class HolbertonCourse {
     this._name = na;
   }
 
+  get length() {
+    return this._length;
+  }
+
+  set length(zise) {
+    if (typeof zise !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = zise;
+  }
+
 
 }
