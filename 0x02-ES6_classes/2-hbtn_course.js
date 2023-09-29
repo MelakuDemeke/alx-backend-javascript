@@ -5,7 +5,11 @@ export default class HolbertonCourse {
       this._name = name;
     }
 
-    this._length = length;
+    if (typeof length !== 'number') throw TypeError('Length must be a number');
+    else {
+      this._length = length;
+    }
+    
     this._students = students;
   }
 }
