@@ -21,4 +21,8 @@ export default class Pricing {
   set currency(cur) {
     this._currency = cur;
   }
+
+  displayFullPrice() {
+    return `${this._amount} ${this._currency.displayFullCurrency()}`;
+  }
 }
