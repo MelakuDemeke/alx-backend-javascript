@@ -1,4 +1,4 @@
-const hasValuesFromArray = () => {
+const hasValuesFromArray = (set, array) => {
 
 }
 
