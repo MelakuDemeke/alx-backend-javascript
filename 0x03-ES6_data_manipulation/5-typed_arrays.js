@@ -1,4 +1,4 @@
-const createInt8TypedArray = () => {
+const createInt8TypedArray = (length, position, value) => {
 
 }
 
