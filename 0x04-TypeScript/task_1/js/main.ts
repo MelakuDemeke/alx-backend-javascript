@@ -20,3 +20,14 @@ type PrintTeacherFunction = (firstName: string, lastName: string) => string;
 function printTeacher(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
 }
+
+// Define an interface for a student class constructor
+interface IStudentClassConstructor {
+  new (firstName: string, lastName: string): IStudentClass;
+}
+
+// Define an interface for a student class
+interface IStudentClass {
+  workOnHomework(): string;
+  displayName(): string;
+}
