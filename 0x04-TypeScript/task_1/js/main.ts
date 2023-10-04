@@ -42,6 +42,11 @@ class StudentClass implements IStudentClass {
     this._lastName = lastName;
   }
 
+  workOnHomework() {
+    return 'Currently working';
+  }
+
+
 }
 
 
