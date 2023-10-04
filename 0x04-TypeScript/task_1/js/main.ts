@@ -1,13 +1,13 @@
-export interface WorkFromHomeEmployee {
+export interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
-  performTasks(): string;
+  workDirectorTasks(): string;
 }
 
-export interface OnsiteEmployee {
+export interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
-  performTasks(): string;
+  workTeacherTasks(): string;
 }
 
 export class Director implements WorkFromHomeEmployee {
