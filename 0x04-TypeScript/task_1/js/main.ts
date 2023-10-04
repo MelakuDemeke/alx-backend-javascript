@@ -37,3 +37,10 @@ export class Teacher implements OnsiteEmployee {
     return 'Performing teacher tasks';
   }
 }
+
+export function createEmployee(salaryOrType: number | string): Director | Teacher {
+  if (typeof salaryOrType === 'number' && salaryOrType < 500) {
+    return new Teacher();
+  }
+  return new Director();
+}
