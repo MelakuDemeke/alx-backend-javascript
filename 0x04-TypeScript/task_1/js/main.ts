@@ -51,4 +51,11 @@ class StudentClass implements IStudentClass {
   }
 }
 
-
+// Implement a function to create a student instance
+function createStudent(
+  StudentClassConstructor : IStudentClassConstructor,
+  firstName: string,
+  lastName: string
+): IStudentClass {
+  return new StudentClassConstructor (firstName, lastName);
+}
