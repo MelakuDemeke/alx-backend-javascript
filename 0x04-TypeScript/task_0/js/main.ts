@@ -21,5 +21,32 @@ const student2: Student = {
 const studentsList: Array<Student> = [student1, student2];
 
 export const showStudents = (students: Array<Student>): void => {
-  
+  const table = document.createElement('table');
+
+  // Create the table header
+  const tableHead = document.createElement('thead');
+  const headRow = document.createElement('tr');
+  headRow.innerHTML = `
+    <td>FirstName</td>
+    <td>Location</td>
+  `;
+  tableHead.appendChild(headRow);
+
+  // Create the table body
+  const tableBody = document.createElement('tbody');
+  students.forEach((student) => {
+    const bodyRow = document.createElement('tr');
+    bodyRow.innerHTML = `
+      <td>${student.firstName}</td>
+      <td>${student.location}</td>
+    `;
+    tableBody.appendChild(bodyRow);
+  });
+
+  // Assemble the table
+  table.appendChild(tableHead);
+  table.appendChild(tableBody);
+
+  // Append the table to the document body
+  document.body.appendChild(table);
 };
