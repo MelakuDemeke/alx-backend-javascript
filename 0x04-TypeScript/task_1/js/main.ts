@@ -1,66 +1,54 @@
-export interface DirectorInterface {
-  workFromHome(): string;
-  getCoffeeBreak(): string;
-  workDirectorTasks(): string;
+export interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
 
-export interface TeacherInterface {
-  workFromHome(): string;
-  getCoffeeBreak(): string;
-  workTeacherTasks(): string;
-}
+const student1: Student = {
+  firstName: "Melaku",
+  lastName: "Demeke",
+  age: 26,
+  location: "Addis ababa, Ethiopia",
+};
+const student2: Student = {
+  firstName: "Getnet",
+  lastName: "legese",
+  age: 22,
+  location: "Aseb Erithrea",
+};
 
-export class Director implements DirectorInterface {
-  workFromHome() {
-    return 'Working from home';
-  }
+const studentsList: Array<Student> = [student1, student2];
 
-  getCoffeeBreak() {
-    return 'Getting a coffee break';
-  }
+export const showStudents = (students: Array<Student>): void => {
+  const table = document.createElement('table');
 
-  workDirectorTasks() {
-    return 'Getting to director tasks';
-  }
-}
+  // Create the table header
+  const tableHead = document.createElement('thead');
+  const headRow = document.createElement('tr');
+  headRow.innerHTML = `
+    <td>FirstName</td>
+    <td>Location</td>
+  `;
+  tableHead.appendChild(headRow);
 
-export class Teacher implements TeacherInterface {
-  workFromHome() {
-    return 'Cannot work from home';
-  }
+  // Create the table body
+  const tableBody = document.createElement('tbody');
+  students.forEach((student) => {
+    const bodyRow = document.createElement('tr');
+    bodyRow.innerHTML = `
+      <td>${student.firstName}</td>
+      <td>${student.location}</td>
+    `;
+    tableBody.appendChild(bodyRow);
+  });
 
-  getCoffeeBreak() {
-    return 'Cannot have a break';
-  }
+  // Assemble the table
+  table.appendChild(tableHead);
+  table.appendChild(tableBody);
 
-  workTeacherTasks() {
-    return 'Getting to work';
-  }
-}
+  // Append the table to the document body
+  document.body.appendChild(table);
+};
 
-
-export function createEmployee(salary: (number | string)): (Director | Teacher) {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teacher();
-  }
-  return new Director();
-}
-
-export function isDirector(employee: (Director | Teacher)) {
-  return employee instanceof Director;
-}
-
-type Employee = Director | Teacher;
-
-export function executeWork(employee: Employee): string {
-  if (employee instanceof Director) {
-    return employee.workDirectorTasks();
-  }
-  return employee.workTeacherTasks();
-}
-
-type Subjects = 'Math' | 'History';
-
-export function teachClass(todayClass: Subjects): string {
-  return `Teaching ${todayClass}`;
-}
+showStudents(studentsList);
