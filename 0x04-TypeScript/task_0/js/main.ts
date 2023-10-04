@@ -20,4 +20,6 @@ const student2: Student = {
 
 const studentsList: Array<Student> = [student1, student2];
 
-
+export const showStudents = (students: Array<Student>): void => {
+  
+};
