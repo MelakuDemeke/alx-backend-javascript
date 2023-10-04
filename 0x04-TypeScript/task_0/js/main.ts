@@ -1,5 +1,7 @@
-interface Studen {
-    name: string;
-    age: number;
-    location: string;
+export interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
+
