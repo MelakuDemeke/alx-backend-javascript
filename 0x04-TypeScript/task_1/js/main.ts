@@ -46,7 +46,9 @@ class StudentClass implements IStudentClass {
     return 'Currently working';
   }
 
-
+  displayName() {
+    return this._firstName;
+  }
 }
 
 
