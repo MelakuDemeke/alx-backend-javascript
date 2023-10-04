@@ -50,3 +50,5 @@ export const showStudents = (students: Array<Student>): void => {
   // Append the table to the document body
   document.body.appendChild(table);
 };
+
+showStudents(studentsList);
