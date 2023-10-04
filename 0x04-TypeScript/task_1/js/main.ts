@@ -59,3 +59,6 @@ function createStudent(
 ): IStudentClass {
   return new StudentClassConstructor (firstName, lastName);
 }
+
+// Export the types and functions
+export { Teacher, Directors, PrintTeacherFunction, printTeacher, IStudentClass, StudentClass, createStudent };
