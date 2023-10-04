@@ -4,3 +4,8 @@ export interface WorkFromHomeEmployee {
   performTasks(): string;
 }
 
+export interface OnsiteEmployee {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  performTasks(): string;
+}
