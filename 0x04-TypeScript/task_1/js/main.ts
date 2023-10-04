@@ -31,3 +31,11 @@ interface IStudentClass {
   workOnHomework(): string;
   displayName(): string;
 }
+
+// Implement a StudentClass class that implements IStudentClass
+class StudentClass implements IStudentClass {
+  private _firstName: string;
+  private _lastName: string;
+}
+
+
