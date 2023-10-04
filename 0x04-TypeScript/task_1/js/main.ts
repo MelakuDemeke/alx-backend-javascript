@@ -49,3 +49,18 @@ export function createEmployee(salary: (number | string)): (Director | Teacher) 
 export function isDirector(employee: (Director | Teacher)) {
   return employee instanceof Director;
 }
+
+type Employee = Director | Teacher;
+
+export function executeWork(employee: Employee): string {
+  if (employee instanceof Director) {
+    return employee.workDirectorTasks();
+  }
+  return employee.workTeacherTasks();
+}
+
+type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  return `Teaching ${todayClass}`;
+}
