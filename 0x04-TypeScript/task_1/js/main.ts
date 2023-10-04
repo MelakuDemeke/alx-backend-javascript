@@ -10,7 +10,7 @@ export interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
-export class Director implements WorkFromHomeEmployee {
+export class Director implements DirectorInterface {
   workFromHome() {
     return 'Working from home';
   }
@@ -19,12 +19,12 @@ export class Director implements WorkFromHomeEmployee {
     return 'Getting a coffee break';
   }
 
-  performTasks() {
-    return 'Performing director tasks';
+  workDirectorTasks() {
+    return 'Getting to director tasks';
   }
 }
 
-export class Teacher implements OnsiteEmployee {
+export class Teacher implements TeacherInterface {
   workFromHome() {
     return 'Cannot work from home';
   }
@@ -33,10 +33,11 @@ export class Teacher implements OnsiteEmployee {
     return 'Cannot have a break';
   }
 
-  performTasks() {
-    return 'Performing teacher tasks';
+  workTeacherTasks() {
+    return 'Getting to work';
   }
 }
+
 
 export function createEmployee(salaryOrType: number | string): Director | Teacher {
   if (typeof salaryOrType === 'number' && salaryOrType < 500) {
