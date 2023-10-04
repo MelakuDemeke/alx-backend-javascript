@@ -9,3 +9,17 @@ export interface OnsiteEmployee {
   getCoffeeBreak(): string;
   performTasks(): string;
 }
+
+export class Director implements WorkFromHomeEmployee {
+  workFromHome() {
+    return 'Working from home';
+  }
+
+  getCoffeeBreak() {
+    return 'Getting a coffee break';
+  }
+
+  performTasks() {
+    return 'Performing director tasks';
+  }
+}
