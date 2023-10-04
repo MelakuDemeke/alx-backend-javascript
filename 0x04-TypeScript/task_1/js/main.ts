@@ -23,3 +23,17 @@ export class Director implements WorkFromHomeEmployee {
     return 'Performing director tasks';
   }
 }
+
+export class Teacher implements OnsiteEmployee {
+  workFromHome() {
+    return 'Cannot work from home';
+  }
+
+  getCoffeeBreak() {
+    return 'Cannot have a break';
+  }
+
+  performTasks() {
+    return 'Performing teacher tasks';
+  }
+}
