@@ -14,6 +14,13 @@ function countStudents (path) {
   const studentGroups = {};
   const dbFieldNames = fileLines[0].split(',');
   const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+
+  // Process each line of the file
+  for (const line of fileLines.slice(1)) {
+    const studentRecord = line.split(',');
+    const studentPropValues = studentRecord.slice(0, studentRecord.length - 1);
+    const field = studentRecord[studentRecord.length - 1];
+  }
 }
 
 module.exports = countStudents;
