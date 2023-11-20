@@ -20,6 +20,11 @@ function countStudents (path) {
     const studentRecord = line.split(',');
     const studentPropValues = studentRecord.slice(0, studentRecord.length - 1);
     const field = studentRecord[studentRecord.length - 1];
+
+    // Create or update student groups
+    if (!studentGroups[field]) {
+      studentGroups[field] = [];
+    }
   }
 }
 
