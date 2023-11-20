@@ -39,7 +39,11 @@ function countStudents (path) {
     .reduce((total, group) => total + group.length, 0);
   console.log(`Number of students: ${totalStudents}`);
 
-  
+  // Display the number of students in each group
+  for (const [field, group] of Object.entries(studentGroups)) {
+    const studentNames = group.map((student) => student.firstname).join(', ');
+    console.log(`Number of students in ${field}: ${group.length}. List: ${studentNames}`);
+  }
 }
 
 module.exports = countStudents;
