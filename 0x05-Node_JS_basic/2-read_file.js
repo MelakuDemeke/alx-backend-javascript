@@ -34,6 +34,12 @@ function countStudents (path) {
     // Add the student entry to the appropriate group
     studentGroups[field].push(studentEntry);
   }
+  // Calculate and display the total number of students
+  const totalStudents = Object.values(studentGroups)
+    .reduce((total, group) => total + group.length, 0);
+  console.log(`Number of students: ${totalStudents}`);
+
+  
 }
 
 module.exports = countStudents;
