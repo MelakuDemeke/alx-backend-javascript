@@ -25,6 +25,11 @@ function countStudents (path) {
     if (!studentGroups[field]) {
       studentGroups[field] = [];
     }
+  
+    // Create an object for each student entry
+    const studentEntry = Object.fromEntries(
+      studentPropNames.map((propName, idx) => [propName, studentPropValues[idx]])
+    );
   }
 }
 
