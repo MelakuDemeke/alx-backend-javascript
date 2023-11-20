@@ -1,5 +1,12 @@
 const fs = require('fs');
 
+/**
+ * Counts the number of students in a CSV file and displays the results.
+ * 
+ * @param {string} path - The path to the database file.
+ * @throws {Error} If the database file does not exist.
+ * @author Melaku Demeke <https://github.com/MelakuDemeke>
+ */
 function countStudents (path) {
   // Check if the file exists
   if (!fs.existsSync(path) || !fs.statSync(path).isFile()) {
