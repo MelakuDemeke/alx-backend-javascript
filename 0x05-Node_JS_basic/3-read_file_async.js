@@ -7,7 +7,11 @@ const fs = require('fs');
  * @author Melaku Demeke <https://github.com/MelakuDemeke>
  */
 const countStudents = (path) => new Promise((resolve, reject) => {
-    fs.readFile(path, 'utf-8', (err, data) => {
-        
-    });
+  fs.readFile(path, 'utf-8', (err, data) => {
+    if (err) {
+      reject(new Error('Cannot load the database'));
+    }
+  });
 });
+
+module.exports = countStudents;
