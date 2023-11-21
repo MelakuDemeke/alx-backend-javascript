@@ -49,13 +49,13 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
   });
 });
 
-const server = http.createServer((req, res) => {
-  const routeHandler = SERVER_ROUTE_HANDLERS.find((handler) => handler.route === req.url);
-
-  if (routeHandler) {
-    routeHandler.handler(req, res);
-  }
-});
+const respondWithPlainText = (res, text) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Content-Length': Buffer.byteLength(text),
+  });
+  res.end(text);
+};
 
 const SERVER_ROUTE_HANDLERS = [
   {
@@ -82,13 +82,13 @@ const SERVER_ROUTE_HANDLERS = [
   },
 ];
 
-const respondWithPlainText = (res, text) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/plain',
-    'Content-Length': Buffer.byteLength(text),
-  });
-  res.end(text);
-};
+const server = http.createServer((req, res) => {
+  const routeHandler = SERVER_ROUTE_HANDLERS.find((handler) => handler.route === req.url);
+
+  if (routeHandler) {
+    routeHandler.handler(req, res);
+  }
+});
 
 server.listen(PORT, HOST, () => {
   console.log(`Server listening at http://${HOST}:${PORT}`);
