@@ -3,7 +3,7 @@ import StudentsController from '../controllers/StudentsController';
 
 /**
  * Maps routes to the app.
- * 
+ *
  * @param {Object} app - The Express app object.
  */
 const mapRoutes = (app) => {
