@@ -26,6 +26,18 @@ class StudentController {
       return;
     }
 
+    readDatabase(DB_FILE)
+    .then((studentGroups) => {
+      const responseText = Object.keys(studentGroups).includes(major)
+          ? `List: ${studentGroups[major].map((student) => student.firstname).join(', ')}`
+          : '';
+
+        res.status(200).send(responseText);
+    })
+    .catch((err) => {
+      res.status(500).send(err instanceof Error ? err.message : err.toString());
+    });
+
   }
 }
 
