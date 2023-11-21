@@ -87,3 +87,9 @@ const respondWithPlainText = (res, text) => {
   });
   res.end(text);
 };
+
+server.listen(PORT, HOST, () => {
+  console.log(`Server listening at http://${HOST}:${PORT}`);
+});
+
+module.exports = server;
