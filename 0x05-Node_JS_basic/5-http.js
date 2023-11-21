@@ -3,4 +3,4 @@ const fs = require('fs');
 
 const PORT = 1245;
 const HOST = 'localhost';
-const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
+const DB_FILE = process.argv[2] || '';
