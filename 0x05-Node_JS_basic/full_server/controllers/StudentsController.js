@@ -1,9 +1,10 @@
 import readDatabase from '../utils';
+const VALID_MAJORS = ['CS', 'SWE'];
+const DB_FILE = process.argv[2] || '';
 
 class StudentController {
   static getAllStudents(req, res) {
-    const dataPath = process.argv[2] || '';
-    readDatabase(dataPath)
+    readDatabase(DB_FILE)
       .then((studentGroups) => {
         const responseParts = ['List of students:'];
         const compareIgnoreCase = (a, b) => a.toLowerCase().localeCompare(b.toLowerCase());
@@ -19,6 +20,7 @@ class StudentController {
   }
 
   static getAllStudentsByMajor(req, res) {
+    const { major } = req.params;
 
   }
 }
