@@ -21,6 +21,10 @@ class StudentController {
 
   static getAllStudentsByMajor(req, res) {
     const { major } = req.params;
+    if (!VALID_MAJORS.includes(major)) {
+      res.status(500).send('Major parameter must be CS or SWE');
+      return;
+    }
 
   }
 }
