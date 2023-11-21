@@ -12,7 +12,13 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       reject(new Error('Cannot load the database'));
     }
     if (data) {
-      
+      const fileContent = fs.readFileSync(path, 'utf-8').trim();
+      const fileLines = fileContent.split('\n');
+
+      const studentGroups = {};
+      const dbFieldNames = fileLines[0].split(',');
+      const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+    
     }
   });
 });
