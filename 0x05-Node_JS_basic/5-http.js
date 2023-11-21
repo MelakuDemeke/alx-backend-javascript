@@ -56,5 +56,10 @@ const server = http.createServer((req, res) => {
 });
 
 const SERVER_ROUTE_HANDLERS = [
-
+  {
+    route: '/',
+    handler(_, res) {
+      respondWithPlainText(res, 'Hello Holberton School!');
+    },
+  },
 ];
