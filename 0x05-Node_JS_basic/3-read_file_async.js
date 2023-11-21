@@ -6,3 +6,6 @@ const fs = require('fs');
  * @returns {Promise} - The number of students in the database
  * @author Melaku Demeke <https://github.com/MelakuDemeke>
  */
+const countStudents = (path) => new Promise((resolve, reject) => {
+
+});
