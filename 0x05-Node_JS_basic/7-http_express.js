@@ -48,3 +48,7 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
     resolve(reportParts.join('\n'));
   });
 });
+
+app.get('/', (_, res) => {
+  res.send('Hello Holberton School!');
+});
