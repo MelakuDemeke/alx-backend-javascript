@@ -1,4 +1,5 @@
 import readDatabase from '../utils';
+
 const VALID_MAJORS = ['CS', 'SWE'];
 const DB_FILE = process.argv[2] || '';
 
@@ -27,17 +28,16 @@ class StudentController {
     }
 
     readDatabase(DB_FILE)
-    .then((studentGroups) => {
-      const responseText = Object.keys(studentGroups).includes(major)
+      .then((studentGroups) => {
+        const responseText = Object.keys(studentGroups).includes(major)
           ? `List: ${studentGroups[major].map((student) => student.firstname).join(', ')}`
           : '';
 
         res.status(200).send(responseText);
-    })
-    .catch((err) => {
-      res.status(500).send(err instanceof Error ? err.message : err.toString());
-    });
-
+      })
+      .catch((err) => {
+        res.status(500).send(err instanceof Error ? err.message : err.toString());
+      });
   }
 }
 
