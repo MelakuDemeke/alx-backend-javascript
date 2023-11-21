@@ -47,3 +47,14 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
   });
 });
 
+const server = http.createServer((req, res) => {
+  const routeHandler = SERVER_ROUTE_HANDLERS.find(handler => handler.route === req.url);
+
+  if (routeHandler) {
+    routeHandler.handler(req, res);
+  }
+});
+
+const SERVER_ROUTE_HANDLERS = [
+
+];
