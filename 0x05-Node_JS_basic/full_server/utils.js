@@ -6,7 +6,7 @@ import fs from 'fs';
  * @returns {Promise} - The number of students in the database
  * @author Melaku Demeke <https://github.com/MelakuDemeke>
  */
-const countStudents = (path) => new Promise((resolve, reject) => {
+const readDatabase = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
       reject(new Error('Cannot load the database'));
@@ -43,9 +43,9 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         const studentNames = group.map((student) => student.firstname).join(', ');
         console.log(`Number of students in ${field}: ${group.length}. List: ${studentNames}`);
       }
-      resolve(true);
+      resolve(studentGroups);
     }
   });
 });
 
-module.exports = countStudents;
+export default readDatabase;
