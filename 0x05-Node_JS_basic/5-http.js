@@ -79,3 +79,11 @@ const SERVER_ROUTE_HANDLERS = [
     },
   },
 ];
+
+const respondWithPlainText = (res, text) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Content-Length': Buffer.byteLength(text),
+  });
+  res.end(text);
+};
