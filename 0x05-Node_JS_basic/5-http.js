@@ -62,4 +62,20 @@ const SERVER_ROUTE_HANDLERS = [
       respondWithPlainText(res, 'Hello Holberton School!');
     },
   },
+  {
+    route: '/students',
+    handler(_, res) {
+      const responseParts = ['This is the list of our students'];
+
+      countStudents(DB_FILE)
+        .then(report => {
+          responseParts.push(report);
+          respondWithPlainText(res, responseParts.join('\n'));
+        })
+        .catch(err => {
+          responseParts.push(err instanceof Error ? err.message : err.toString());
+          respondWithPlainText(res, responseParts.join('\n'));
+        });
+    },
+  },
 ];
