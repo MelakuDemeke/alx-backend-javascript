@@ -7,5 +7,7 @@ const fs = require('fs');
  * @author Melaku Demeke <https://github.com/MelakuDemeke>
  */
 const countStudents = (path) => new Promise((resolve, reject) => {
-
+    fs.readFile(path, 'utf-8', (err, data) => {
+        
+    });
 });
