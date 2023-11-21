@@ -32,7 +32,9 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
         studentGroups[field] = [];
       }
 
-      const studentEntries = studentPropNames.map((propName, idx) => [propName, studentPropValues[idx]]);
+      const studentEntries = studentPropNames.map(
+        (propName, idx) => [propName, studentPropValues[idx]],
+      );
       studentGroups[field].push(Object.fromEntries(studentEntries));
     }
 
@@ -48,7 +50,7 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
 });
 
 const server = http.createServer((req, res) => {
-  const routeHandler = SERVER_ROUTE_HANDLERS.find(handler => handler.route === req.url);
+  const routeHandler = SERVER_ROUTE_HANDLERS.find((handler) => handler.route === req.url);
 
   if (routeHandler) {
     routeHandler.handler(req, res);
@@ -68,11 +70,11 @@ const SERVER_ROUTE_HANDLERS = [
       const responseParts = ['This is the list of our students'];
 
       countStudents(DB_FILE)
-        .then(report => {
+        .then((report) => {
           responseParts.push(report);
           respondWithPlainText(res, responseParts.join('\n'));
         })
-        .catch(err => {
+        .catch((err) => {
           responseParts.push(err instanceof Error ? err.message : err.toString());
           respondWithPlainText(res, responseParts.join('\n'));
         });
