@@ -11,6 +11,9 @@ const countStudents = (path) => new Promise((resolve, reject) => {
     if (err) {
       reject(new Error('Cannot load the database'));
     }
+    if (data) {
+      
+    }
   });
 });
 
