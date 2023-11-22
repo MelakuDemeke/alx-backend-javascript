@@ -23,4 +23,8 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber(-2.7, -3.2), -6);
 	});
 
+	it('should add a positive float and a negative float correctly', () => {
+		assert.strictEqual(calculateNumber(2.7, -3.2), 0);
+	});
+
 });
