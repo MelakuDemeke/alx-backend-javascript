@@ -1,9 +1,11 @@
 /**
- * Adds two numbers.
- *
+ * Performs a mathematical operation on two numbers.
+ * @param {string} type - The type of operation to perform. Valid values are 'SUM',
+ *                        'SUBTRACT', and 'DIVIDE'.
  * @param {number} a - The first number.
  * @param {number} b - The second number.
- * @returns {number} The sum of the two numbers.
+ * @returns {number|string} - The result of the operation. If the operation is
+ *                           'DIVIDE' and the second number is 0, returns 'Error'.
  */
 const calculateNumber = (type, a, b) => {
   if (type === 'SUM') {
