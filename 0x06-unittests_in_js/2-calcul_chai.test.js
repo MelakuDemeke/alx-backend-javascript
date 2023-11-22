@@ -1,8 +1,8 @@
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
-describe('Calculate Number', () => {
-  describe('Test Addition', () => {
+describe('calculateNumber', () => {
+  describe('test Addition', () => {
     it('should add two positive integers correctly', () => {
       assert.strictEqual(calculateNumber('SUM', 2, 3), 5);
     });
@@ -32,7 +32,7 @@ describe('Calculate Number', () => {
     });
   });
 
-  describe('Test Subtraction', () => {
+  describe('test Subtraction', () => {
     it('should subtract two positive integers correctly', () => {
       assert.strictEqual(calculateNumber('SUBTRACT', 5, 3), 2);
     });
@@ -62,7 +62,7 @@ describe('Calculate Number', () => {
     });
   });
 
-  describe('Test Division', () => {
+  describe('test Division', () => {
     it('should divide two positive integers correctly', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 6, 3), 2);
     });
@@ -90,6 +90,5 @@ describe('Calculate Number', () => {
     it('should return "Error" when dividing by 0', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 5, 0), 'Error');
     });
-
   });
 });
