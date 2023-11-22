@@ -11,4 +11,8 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber(-2, -3), -5);
 	});
 
+	it('should add a positive integer and a negative integer correctly', () => {
+		assert.strictEqual(calculateNumber(2, -3), -1);
+	});
+
 });
