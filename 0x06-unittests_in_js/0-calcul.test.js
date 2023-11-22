@@ -27,4 +27,7 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber(2.7, -3.2), 0);
 	});
 
+	it('should return 0 for two zeros', () => {
+		assert.strictEqual(calculateNumber(0, 0), 0);
+	});
 });
