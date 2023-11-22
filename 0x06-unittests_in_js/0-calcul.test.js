@@ -19,4 +19,8 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber(2.7, 3.2), 6);
 	});
 
+	it('should add two negative floats correctly', () => {
+		assert.strictEqual(calculateNumber(-2.7, -3.2), -6);
+	});
+
 });
