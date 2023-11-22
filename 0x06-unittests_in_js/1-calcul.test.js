@@ -63,8 +63,29 @@ describe('calculateNumber', () => {
   });
 
   describe('Test Division', () => {
-    
+    it('should divide two positive integers correctly', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 6, 3), 2);
+    });
+  
+    it('should divide two negative integers correctly', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', -9, -3), 3);
+    });
+  
+    it('should divide a positive integer by a negative integer correctly', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 10, -2), -5);
+    });
+  
+    it('should divide two floats correctly (rounded)', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 5.5, 2.2), 3);
+    });
+  
+    it('should divide two negative floats correctly (rounded)', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', -8.4, -2), 4);
+    });
+  
+    it('should divide a positive float by a negative float correctly (rounded)', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 7.2, -1.8), -3.5);
+    });
+
   });
-
-
 });
