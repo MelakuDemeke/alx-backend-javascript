@@ -14,4 +14,13 @@ describe('sendPaymentRequestToApi', () => {
     calculateNumberStub.restore();
   });
 
+  it('should use calculateNumber method of Utils with correct arguments', () => {
+    const amount = 100;
+    const tax = 20;
+
+    sendPaymentRequestToApi(amount, tax);
+
+    expect(calculateNumberStub.calledOnce).to.be.true;
+    expect(calculateNumberStub.calledWithExactly('SUM', amount, tax)).to.be.true;
+  });
 });
