@@ -1,0 +1,3 @@
+const sendPaymentRequestToApi = (totalAmount, totalShipping) => {
+
+};
