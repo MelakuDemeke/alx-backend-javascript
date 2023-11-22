@@ -15,4 +15,8 @@ describe('calculateNumber', () => {
 		assert.strictEqual(calculateNumber(2, -3), -1);
 	});
 
+	it('should add two floats correctly', () => {
+		assert.strictEqual(calculateNumber(2.7, 3.2), 6);
+	});
+
 });
