@@ -5,4 +5,13 @@ const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
   let calculateNumberStub;
+
+  beforeEach(() => {
+    calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
+  });
+
+  afterEach(() => {
+    calculateNumberStub.restore();
+  });
+
 });
