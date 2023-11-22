@@ -1,33 +1,29 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const Utils = require('./utils');
-const sendPaymentRequestToApi = require('./3-payment');
+const sendPaymentRequestToApi = require('./5-payment');
 
 describe('sendPaymentRequestToApi', () => {
-  let calculateNumberStub;
-  let consoleSpy;
+  let loggerSpy;
 
   beforeEach(() => {
-    calculateNumberStub = sinon.stub(Utils, 'calculateNumber').returns(10);
-
-    consoleSpy = sinon.spy(console, 'log');
+    if (!loggerSpy) {
+      loggerSpy = sinon.spy(console);
+    }
   });
 
   afterEach(() => {
-    calculateNumberStub.restore();
-    consoleSpy.restore();
+    loggerSpy.log.resetHistory();
   });
 
-  it('should use calculateNumber method of Utils with correct arguments', () => {
-    const amount = 100;
-    const tax = 20;
+  it('should log "The total is: 120" to the console when sending a payment request with amounts 100 and 20', () => {
+    sendPaymentRequestToApi(100, 20);
+    expect(loggerSpy.log.calledWith('The total is: 120')).to.be.true;
+    expect(loggerSpy.log.calledOnce).to.be.true;
+  });
 
-    sendPaymentRequestToApi(amount, tax);
-
-    expect(calculateNumberStub.calledOnce).to.be.true;
-    expect(calculateNumberStub.calledWithExactly('SUM', amount, tax)).to.be.true;
-
-    expect(consoleSpy.calledOnce).to.be.true;
-    expect(consoleSpy.calledWithExactly('The total is: 10')).to.be.true;
+  it('should log "The total is: 20" to the console when sending a payment request with amounts 10 and 10', () => {
+    sendPaymentRequestToApi(10, 10);
+    expect(loggerSpy.log.calledWith('The total is: 20')).to.be.true;
+    expect(loggerSpy.log.calledOnce).to.be.true;
   });
 });
