@@ -87,5 +87,9 @@ describe('calculateNumber', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 7.2, -1.8), -3.5);
     });
 
+    it('should return "Error" when dividing by 0', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 5, 0), 'Error');
+    });
+
   });
 });
