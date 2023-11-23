@@ -19,4 +19,11 @@ describe('API route test', () => {
       done();
     });
   });
+
+  it('should return a correct response for GET /cart/:isNaN', (done) => {
+    request.get(`${API_URL}/cart/anything`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
+  });
 });
