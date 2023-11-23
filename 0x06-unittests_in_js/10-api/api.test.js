@@ -26,4 +26,14 @@ describe('API route test', () => {
       done();
     });
   });
+
+  it('should return a correct response for GET /available_payments', (done) => {
+    request.get(`${API_URL}/available_payments`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('{"payment_methods":{"credit_cards":true,"paypal":false}}');
+      done();
+    });
+  });
+
+  
 });
