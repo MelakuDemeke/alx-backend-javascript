@@ -34,6 +34,4 @@ describe('API route test', () => {
       done();
     });
   });
-
-  
 });
