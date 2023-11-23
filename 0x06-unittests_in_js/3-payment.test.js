@@ -5,22 +5,12 @@ const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
   let calculateNumberStub;
-
-  beforeEach(() => {
-    calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
-  });
-
-  afterEach(() => {
-    calculateNumberStub.restore();
-  });
-
   it('should use calculateNumber method of Utils with correct arguments', () => {
-    const amount = 100;
-    const tax = 20;
+    const utilsSpy = sinon.spy(Utils);
 
-    sendPaymentRequestToApi(amount, tax);
-
-    expect(calculateNumberStub.calledOnce).to.be.true;
-    expect(calculateNumberStub.calledWithExactly('SUM', amount, tax)).to.be.true;
+    sendPaymentRequestToApi(100, 20);
+    expect(utilsSpy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+    expect(utilsSpy.calculateNumber.callCount).to.be.equal(1);
+    utilsSpy.calculateNumber.restore();
   });
 });
