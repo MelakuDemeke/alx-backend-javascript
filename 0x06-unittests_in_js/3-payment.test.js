@@ -4,7 +4,6 @@ const { expect } = require('chai');
 const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
-  let calculateNumberStub;
   it('should use calculateNumber method of Utils with correct arguments', () => {
     const utilsSpy = sinon.spy(Utils);
 
